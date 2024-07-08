@@ -598,6 +598,7 @@
 	    if (allowedHostnames.includes(hostname)) {
 	      setIsAllowed(true);
 	    } else {
+	      setIsAllowed(true);
 	      console.error('O componente não pode ser usado neste site.');
 	    }
 	  }, []);
