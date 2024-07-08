@@ -582,10 +582,9 @@
 	styleInject(css_248z);
 
 	const allowedHostnames = ['localhost'];
-	const ChatComponent = _ref => {
-	  let {
-	    token
-	  } = _ref;
+	const ChatComponent = ({
+	  token
+	}) => {
 	  const [messages, setMessages] = react_1([]);
 	  const [input, setInput] = react_1('');
 	  const [isExpanded, setIsExpanded] = react_1(false);
@@ -598,18 +597,18 @@
 	    if (allowedHostnames.includes(hostname)) {
 	      setIsAllowed(true);
 	    } else {
+	      console.error('Liberado pra testes');
 	      setIsAllowed(true);
-	      console.error('O componente não pode ser usado neste site.');
 	    }
 	  }, []);
+	  setIsAllowed(true);
 	  react_2(() => {
 	    if (isAllowed) {
 	      scrollToBottom();
 	    }
 	  }, [messages, isAllowed]);
 	  const scrollToBottom = () => {
-	    var _messagesEndRef$curre;
-	    (_messagesEndRef$curre = messagesEndRef.current) === null || _messagesEndRef$curre === void 0 || _messagesEndRef$curre.scrollIntoView({
+	    messagesEndRef.current?.scrollIntoView({
 	      behavior: 'smooth'
 	    });
 	  };
@@ -667,7 +666,7 @@
 	    className: "support-button",
 	    onClick: toggleChat
 	  }, "Atendimento"), isExpanded && /*#__PURE__*/react.createElement("div", {
-	    className: "chat-container ".concat(isExpanded ? 'expanded' : '', " ").concat(isFading ? 'fade-out' : 'fade-in')
+	    className: `chat-container ${isExpanded ? 'expanded' : ''} ${isFading ? 'fade-out' : 'fade-in'}`
 	  }, /*#__PURE__*/react.createElement("div", {
 	    className: "chat-header",
 	    onClick: toggleChat
@@ -686,7 +685,7 @@
 	    className: "messages"
 	  }, messages.map((msg, index) => /*#__PURE__*/react.createElement("div", {
 	    key: index,
-	    className: "message ".concat(msg.sender)
+	    className: `message ${msg.sender}`
 	  }, msg.sender === 'bot' && /*#__PURE__*/react.createElement("img", {
 	    src: "https://img.restaurantguru.com/w550/h367/r972-Quiosque-Praia-da-Armacao-logo.jpg",
 	    alt: "Profile",
