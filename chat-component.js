@@ -602,7 +602,6 @@
 	      setIsAllowed(true);
 	    }
 	  }, []);
-	  setIsAllowed(true);
 	  react_2(() => {
 	    if (isAllowed) {
 	      scrollToBottom();
